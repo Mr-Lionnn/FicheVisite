@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fiche de Visite – Agences & Franchises</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Formulaire de visite – Moov Money (Agences & Franchises)">
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <main class="max-w-3xl mx-auto p-6">
+    <header class="mb-6">
+      <h1 class="text-2xl font-bold">📋 Fiche de Visite – Agences & Franchises</h1>
+      <p class="text-sm text-gray-600">Remplissez tous les champs pertinents. Les réponses sont enregistrées automatiquement par Netlify Forms.</p>
+    </header>
+
+    <!-- Netlify Forms: aucune infra à gérer, stockage gratuit (limites du free tier). -->
+    <form name="fiche-visite" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-8 bg-white p-6 rounded-2xl shadow">
+      <!-- Important: form-name hidden input for Netlify -->
+      <input type="hidden" name="form-name" value="fiche-visite" />
+      <!-- Honeypot anti-spam -->
+      <p class="hidden">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+
+      <!-- Informations générales -->
+      <section>
+        <h2 class="text-lg font-semibold mb-4">Informations générales</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="text-sm">Date de visite</span>
+            <input type="date" name="date_visite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" required />
+          </label>
+          <label class="block">
+            <span class="text-sm">Région / Ville</span>
+            <input type="text" name="region_ville" class="mt-1 w-full rounded-lg border border-gray-300 p-2" placeholder="Ex: Abomey-Calavi" required />
+          </label>
+          <fieldset class="md:col-span-2">
+            <span class="text-sm">Type de point de service</span>
+            <div class="mt-2 flex gap-6">
+              <label class="inline-flex items-center gap-2">
+                <input type="radio" name="type_point_service" value="Agence" required />
+                <span>Agence</span>
+              </label>
+              <label class="inline-flex items-center gap-2">
+                <input type="radio" name="type_point_service" value="Franchise" />
+                <span>Franchise</span>
+              </label>
+            </div>
+          </fieldset>
+          <label class="block">
+            <span class="text-sm">Nom du point de service</span>
+            <input type="text" name="nom_point_service" class="mt-1 w-full rounded-lg border border-gray-300 p-2" required />
+          </label>
+          <label class="block">
+            <span class="text-sm">Responsable du point de service</span>
+            <input type="text" name="responsable" class="mt-1 w-full rounded-lg border border-gray-300 p-2" />
+          </label>
+          <label class="block md:col-span-2">
+            <span class="text-sm">Participants (si applicable)</span>
+            <textarea name="participants" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" placeholder="Noms, fonctions"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <!-- 1. Infrastructure et équipements -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">1. Infrastructure et équipements</h2>
+        <div class="space-y-4">
+          <label class="block">
+            <span class="text-sm">État général des locaux</span>
+            <textarea name="infra_etat_locaux" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Visibilité extérieure (enseignes, branding, supports marketing)</span>
+            <textarea name="infra_visibilite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Disponibilité/état des équipements (ordinateurs, terminaux, routeurs, mobiliers, outils Moov Money, etc.)</span>
+            <textarea name="infra_equipements" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="3"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Accessibilité pour les clients (signalisation, emplacement, espace d’accueil)</span>
+            <textarea name="infra_accessibilite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <!-- 2. Opérations commerciales -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">2. Opérations commerciales</h2>
+        <div class="space-y-4">
+          <label class="block">
+            <span class="text-sm">Respect du processus de vente (SIM, terminaux, forfaits, Moov Money, VAS)</span>
+            <textarea name="ops_processus_vente" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Réalisation des objectifs commerciaux (mensuels / hebdomadaires)</span>
+            <textarea name="ops_objectifs" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Gestion du stock (cartes SIM, terminaux, cartes de recharge, etc.)</span>
+            <textarea name="ops_stock" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Outils digitaux utilisés (CRM, auto-rechargement, reporting digital)</span>
+            <textarea name="ops_outils_digitaux" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <!-- 3. Service client et expérience client -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">3. Service client et expérience client</h2>
+        <div class="space-y-4">
+          <label class="block">
+            <span class="text-sm">Accueil et délai de prise en charge des clients</span>
+            <textarea name="sc_accueil_delai" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Capacité de résolution des réclamations</span>
+            <textarea name="sc_resolution_reclamations" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Communication des offres et sensibilisation clients</span>
+            <textarea name="sc_communication_offres" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Retour d’expérience des clients rencontrés (qualité réseau, Moov Money, SAV, etc.)</span>
+            <textarea name="sc_retour_experience" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="3"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <!-- 4. Ressources humaines -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">4. Ressources humaines</h2>
+        <div class="space-y-4">
+          <label class="block">
+            <span class="text-sm">Effectif présent vs attendu</span>
+            <textarea name="rh_effectif" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Implication et motivation des collaborateurs</span>
+            <textarea name="rh_implication_motivation" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Maîtrise des procédures et outils digitaux</span>
+            <textarea name="rh_maitrise_outils" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Besoins exprimés par les agents</span>
+            <textarea name="rh_besoins" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <!-- 5. Conformité & sécurité -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">5. Conformité & sécurité</h2>
+        <div class="space-y-4">
+          <label class="block">
+            <span class="text-sm">Respect des procédures (identification, activation, Moov Money, etc.)</span>
+            <textarea name="conf_procedures" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Sécurité des locaux et des flux financiers</span>
+            <textarea name="conf_securite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-sm">Archivage et traçabilité des opérations</span>
+            <textarea name="conf_archivage_tracabilite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <!-- 6. Points forts observés -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">6. Points forts observés</h2>
+        <textarea name="points_forts" class="w-full rounded-lg border border-gray-300 p-2" rows="3"></textarea>
+      </section>
+
+      <!-- 7. Points d’amélioration / anomalies -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">7. Points d’amélioration / anomalies constatées</h2>
+        <textarea name="points_amelioration" class="w-full rounded-lg border border-gray-300 p-2" rows="3"></textarea>
+      </section>
+
+      <!-- 8. Actions immédiates engagées -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">8. Actions immédiates engagées (pendant la visite)</h2>
+        <textarea name="actions_immediates" class="w-full rounded-lg border border-gray-300 p-2" rows="3"></textarea>
+      </section>
+
+      <!-- Consentement / métadonnées -->
+      <section>
+        <label class="inline-flex items-start gap-2 text-sm">
+          <input type="checkbox" name="consentement" required />
+          <span>Je confirme l'exactitude des informations fournies.</span>
+        </label>
+      </section>
+
+      <div class="pt-2">
+        <button type="submit" class="w-full md:w-auto px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700">Envoyer la fiche</button>
+      </div>
+
+      <p class="text-xs text-gray-500">Astuce : vous pouvez ajouter des captures/photos en hébergeant les images (Drive/Cloud) et en collant les liens dans les champs pertinents.</p>
+    </form>
+
+    <footer class="mt-8 text-xs text-gray-500">
+      <p>Hébergement recommandé : <strong>Netlify</strong> (gratuit). Les soumissions sont visibles dans le dashboard Netlify &rarr; Forms.</p>
+    </footer>
+  </main>
+</body>
+</html>
