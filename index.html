@@ -4,24 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fiche de Visite – Agences & Franchises</title>
+  <meta name="description" content="Formulaire de visite – Agences & Franchises">
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="Formulaire de visite – Moov Money (Agences & Franchises)">
 </head>
 <body class="bg-gray-50 text-gray-900">
   <main class="max-w-3xl mx-auto p-6">
     <header class="mb-6">
       <h1 class="text-2xl font-bold">📋 Fiche de Visite – Agences & Franchises</h1>
-      <p class="text-sm text-gray-600">Remplissez tous les champs pertinents. Les réponses sont enregistrées automatiquement par Netlify Forms.</p>
+      <p class="text-sm text-gray-600">
+        Remplissez les champs pertinents. Les réponses sont stockées via Netlify Forms.
+      </p>
     </header>
 
-    <!-- Netlify Forms: aucune infra à gérer, stockage gratuit (limites du free tier). -->
-    <form name="fiche-visite" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-8 bg-white p-6 rounded-2xl shadow">
-      <!-- Important: form-name hidden input for Netlify -->
+    <!-- IMPORTANT: action points to a separate success.html file -->
+    <form name="fiche-visite"
+          method="POST"
+          action="success.html"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="space-y-8 bg-white p-6 rounded-2xl shadow">
+
+      <!-- required for Netlify form parsing -->
       <input type="hidden" name="form-name" value="fiche-visite" />
-      <!-- Honeypot anti-spam -->
-      <p class="hidden">
-        <label>Ne pas remplir: <input name="bot-field" /></label>
-      </p>
+      <!-- honeypot anti-spam -->
+      <p class="hidden"><label>Ne pas remplir: <input name="bot-field" /></label></p>
 
       <!-- Informations générales -->
       <section>
@@ -174,25 +180,23 @@
         </div>
       </section>
 
-      <!-- 6. Points forts observés -->
+      <!-- 6–8 -->
       <section>
         <h2 class="text-lg font-semibold mb-2">6. Points forts observés</h2>
         <textarea name="points_forts" class="w-full rounded-lg border border-gray-300 p-2" rows="3"></textarea>
       </section>
 
-      <!-- 7. Points d’amélioration / anomalies -->
       <section>
         <h2 class="text-lg font-semibold mb-2">7. Points d’amélioration / anomalies constatées</h2>
         <textarea name="points_amelioration" class="w-full rounded-lg border border-gray-300 p-2" rows="3"></textarea>
       </section>
 
-      <!-- 8. Actions immédiates engagées -->
       <section>
         <h2 class="text-lg font-semibold mb-2">8. Actions immédiates engagées (pendant la visite)</h2>
         <textarea name="actions_immediates" class="w-full rounded-lg border border-gray-300 p-2" rows="3"></textarea>
       </section>
 
-      <!-- Consentement / métadonnées -->
+      <!-- Consentement -->
       <section>
         <label class="inline-flex items-start gap-2 text-sm">
           <input type="checkbox" name="consentement" required />
@@ -201,14 +205,18 @@
       </section>
 
       <div class="pt-2">
-        <button type="submit" class="w-full md:w-auto px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700">Envoyer la fiche</button>
+        <button type="submit" class="w-full md:w-auto px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700">
+          Envoyer la fiche
+        </button>
       </div>
 
-      <p class="text-xs text-gray-500">Astuce : vous pouvez ajouter des captures/photos en hébergeant les images (Drive/Cloud) et en collant les liens dans les champs pertinents.</p>
+      <p class="text-xs text-gray-500">
+        Astuce : vous pouvez ajouter des captures/photos en hébergeant les images (Drive/Cloud) et en collant les liens dans les champs pertinents.
+      </p>
     </form>
 
     <footer class="mt-8 text-xs text-gray-500">
-      <p>Hébergement recommandé : <strong>Netlify</strong> (gratuit). Les soumissions sont visibles dans le dashboard Netlify &rarr; Forms.</p>
+      <p>Hébergement : <strong>Netlify</strong>. Les soumissions sont visibles dans le dashboard Netlify → Forms.</p>
     </footer>
   </main>
 </body>
