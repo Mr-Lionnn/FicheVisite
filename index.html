@@ -6,6 +6,10 @@
   <title>Fiche de Visite – Agences & Franchises</title>
   <meta name="description" content="Formulaire de visite – Agences & Franchises">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Optional: make invalid fields visibly red */
+    input:invalid, textarea:invalid { border-color:#dc2626 !important; box-shadow:0 0 0 1px rgba(220,38,38,.15); }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
   <main class="max-w-3xl mx-auto p-6">
@@ -14,7 +18,7 @@
       <p class="text-sm text-gray-600">Tous les champs sont <strong>obligatoires</strong>. Les réponses sont enregistrées par Netlify Forms.</p>
     </header>
 
-    <!-- Zone de résumé des erreurs -->
+    <!-- Error summary -->
     <div id="error-summary" class="hidden mb-4 p-4 bg-red-100 border border-red-300 text-red-700 rounded-lg">
       Veuillez remplir les champs mis en évidence avant de soumettre le formulaire.
     </div>
@@ -28,6 +32,7 @@
           novalidate
           class="space-y-8 bg-white p-6 rounded-2xl shadow">
 
+      <!-- Required for Netlify Forms -->
       <input type="hidden" name="form-name" value="fiche-visite" />
       <p class="hidden"><label>Ne pas remplir: <input name="bot-field" /></label></p>
 
@@ -35,37 +40,26 @@
       <section>
         <h2 class="text-lg font-semibold mb-4">Informations générales</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <label class="block">
-            <span class="text-sm">Date de visite</span>
+          <label class="block"><span class="text-sm">Date de visite</span>
             <input type="date" name="date_visite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" required />
           </label>
-          <label class="block">
-            <span class="text-sm">Région / Ville</span>
+          <label class="block"><span class="text-sm">Région / Ville</span>
             <input type="text" name="region_ville" class="mt-1 w-full rounded-lg border border-gray-300 p-2" required />
           </label>
           <fieldset class="md:col-span-2">
             <span class="text-sm">Type de point de service</span>
             <div class="mt-2 flex gap-6">
-              <label class="inline-flex items-center gap-2">
-                <input type="radio" name="type_point_service" value="Agence" required />
-                <span>Agence</span>
-              </label>
-              <label class="inline-flex items-center gap-2">
-                <input type="radio" name="type_point_service" value="Franchise" required />
-                <span>Franchise</span>
-              </label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="type_point_service" value="Agence" required /><span>Agence</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="type_point_service" value="Franchise" required /><span>Franchise</span></label>
             </div>
           </fieldset>
-          <label class="block">
-            <span class="text-sm">Nom du point de service</span>
+          <label class="block"><span class="text-sm">Nom du point de service</span>
             <input type="text" name="nom_point_service" class="mt-1 w-full rounded-lg border border-gray-300 p-2" required />
           </label>
-          <label class="block">
-            <span class="text-sm">Responsable du point de service</span>
+          <label class="block"><span class="text-sm">Responsable du point de service</span>
             <input type="text" name="responsable" class="mt-1 w-full rounded-lg border border-gray-300 p-2" required />
           </label>
-          <label class="block md:col-span-2">
-            <span class="text-sm">Participants (si applicable)</span>
+          <label class="block md:col-span-2"><span class="text-sm">Participants (si applicable)</span>
             <textarea name="participants" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
         </div>
@@ -75,20 +69,16 @@
       <section>
         <h2 class="text-lg font-semibold mb-2">1. Infrastructure et équipements</h2>
         <div class="space-y-4">
-          <label class="block">
-            <span class="text-sm">État général des locaux</span>
+          <label class="block"><span class="text-sm">État général des locaux</span>
             <textarea name="infra_etat_locaux" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Visibilité extérieure (enseignes, branding, supports marketing)</span>
+          <label class="block"><span class="text-sm">Visibilité extérieure</span>
             <textarea name="infra_visibilite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Disponibilité/état des équipements</span>
+          <label class="block"><span class="text-sm">Disponibilité/état des équipements</span>
             <textarea name="infra_equipements" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="3" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Accessibilité pour les clients</span>
+          <label class="block"><span class="text-sm">Accessibilité pour les clients</span>
             <textarea name="infra_accessibilite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
         </div>
@@ -98,20 +88,16 @@
       <section>
         <h2 class="text-lg font-semibold mb-2">2. Opérations commerciales</h2>
         <div class="space-y-4">
-          <label class="block">
-            <span class="text-sm">Respect du processus de vente</span>
+          <label class="block"><span class="text-sm">Respect du processus de vente</span>
             <textarea name="ops_processus_vente" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Réalisation des objectifs commerciaux</span>
+          <label class="block"><span class="text-sm">Réalisation des objectifs commerciaux</span>
             <textarea name="ops_objectifs" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Gestion du stock</span>
+          <label class="block"><span class="text-sm">Gestion du stock</span>
             <textarea name="ops_stock" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Outils digitaux utilisés</span>
+          <label class="block"><span class="text-sm">Outils digitaux utilisés</span>
             <textarea name="ops_outils_digitaux" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
         </div>
@@ -121,20 +107,16 @@
       <section>
         <h2 class="text-lg font-semibold mb-2">3. Service client et expérience client</h2>
         <div class="space-y-4">
-          <label class="block">
-            <span class="text-sm">Accueil et délai de prise en charge</span>
+          <label class="block"><span class="text-sm">Accueil et délai de prise en charge</span>
             <textarea name="sc_accueil_delai" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Capacité de résolution des réclamations</span>
+          <label class="block"><span class="text-sm">Capacité de résolution des réclamations</span>
             <textarea name="sc_resolution_reclamations" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Communication des offres</span>
+          <label class="block"><span class="text-sm">Communication des offres</span>
             <textarea name="sc_communication_offres" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Retour d’expérience clients</span>
+          <label class="block"><span class="text-sm">Retour d’expérience clients</span>
             <textarea name="sc_retour_experience" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="3" required></textarea>
           </label>
         </div>
@@ -144,45 +126,37 @@
       <section>
         <h2 class="text-lg font-semibold mb-2">4. Ressources humaines</h2>
         <div class="space-y-4">
-          <label class="block">
-            <span class="text-sm">Effectif présent vs attendu</span>
+          <label class="block"><span class="text-sm">Effectif présent vs attendu</span>
             <textarea name="rh_effectif" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Implication et motivation</span>
+          <label class="block"><span class="text-sm">Implication et motivation</span>
             <textarea name="rh_implication_motivation" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Maîtrise des procédures et outils digitaux</span>
+          <label class="block"><span class="text-sm">Maîtrise des procédures et outils digitaux</span>
             <textarea name="rh_maitrise_outils" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Besoins exprimés</span>
+          <label class="block"><span class="text-sm">Besoins exprimés</span>
             <textarea name="rh_besoins" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
         </div>
       </section>
 
-      <!-- 5. Conformité & sécurité -->
+      <!-- 5–8 -->
       <section>
         <h2 class="text-lg font-semibold mb-2">5. Conformité & sécurité</h2>
         <div class="space-y-4">
-          <label class="block">
-            <span class="text-sm">Respect des procédures</span>
+          <label class="block"><span class="text-sm">Respect des procédures</span>
             <textarea name="conf_procedures" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Sécurité des locaux</span>
+          <label class="block"><span class="text-sm">Sécurité des locaux</span>
             <textarea name="conf_securite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
-          <label class="block">
-            <span class="text-sm">Archivage et traçabilité</span>
+          <label class="block"><span class="text-sm">Archivage et traçabilité</span>
             <textarea name="conf_archivage_tracabilite" class="mt-1 w-full rounded-lg border border-gray-300 p-2" rows="2" required></textarea>
           </label>
         </div>
       </section>
 
-      <!-- 6–8 -->
       <section>
         <h2 class="text-lg font-semibold mb-2">6. Points forts observés</h2>
         <textarea name="points_forts" class="w-full rounded-lg border border-gray-300 p-2" rows="3" required></textarea>
@@ -211,14 +185,13 @@
     </form>
 
     <footer class="mt-8 text-xs text-gray-500">
-      <p>Hébergement : <strong>Netlify</strong>. Les soumissions sont visibles dans le dashboard Netlify → Forms.</p>
+      <p>Hébergement : Netlify — consultez les réponses dans **Forms → fiche-visite**.</p>
     </footer>
   </main>
 
   <script>
     const form = document.getElementById('fiche-form');
     const errorSummary = document.getElementById('error-summary');
-
     form.addEventListener('submit', function(e) {
       if (!form.checkValidity()) {
         e.preventDefault();
